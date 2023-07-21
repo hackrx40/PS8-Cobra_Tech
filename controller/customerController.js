@@ -17,6 +17,7 @@ const transporter = nodemailer.createTransport({
 let response_data, customer;
 module.exports.registerCustomer = async (req, res) => {
   try {
+    let success = false;
     console.log("email", 231);
     console.log(req.body);
     const { email, phone, pan, password, dob } = req.body;
@@ -79,8 +80,9 @@ module.exports.registerCustomer = async (req, res) => {
         id: customer.id,
       },
     };
+    success = true;
     const authtoken = jwt.sign(data, JWT_SECRET, { expiresIn: "1h" });
-    res.status(200).json({ authtoken });
+    res.status(200).json({ success, authtoken });
     //   now sending an otp to Customer as he is registering
   } catch (e) {
     res.status(500).json({ error: e.message });

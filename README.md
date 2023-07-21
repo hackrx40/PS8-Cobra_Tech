@@ -15,17 +15,11 @@ On-Boarding Customers and Partners for Bajaj smoothly
 </h2>
 
 ## 🧐 Problem Statement <a name = "problem_statement"></a>
-<h4>Objective: Develop a website to provide a platform to sell, request and rent products among the
-college peers . The website should allow the students to post demands for certain items regardless of
-availability. Other students should be able to see those requests and put forward offers to the one
-demanding it. The website should be user friendly with clear distinctions among the products for
-sale, rent and request.</h4>
-<h5>💡Enabling the users to donate items.
+<h4>Objective: Develop a website to provide a platform to on board user and partner of Bajaj Finserv.</h4>
+<h5>💡Enabling the users to on board with minimal steps and giving them a seamline flow
 </h5>
-<h5>💡Enabling the users to chat with the requester/ sellers.</h5>
-<h5>💡Enabling the user to post requests /rents/ sales under various predefined categories (like
-electronics, books etc) or even uncategorised.</h5>
-<h5>💡Providing a clean experience to the users with filters and sorting options.</h5>
+<h5>💡Enabling the users to get auto fill data by identity authorization.</h5>
+<h5>💡Enabling the chatbot for user satisfaction</h5>
 
 
 ## 💡 Idea / Solution <a name = "idea"></a>

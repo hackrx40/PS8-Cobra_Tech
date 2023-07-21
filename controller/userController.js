@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
 
   auth: {
-    Customer: "kamrankhot29@gmail.com",
+    user: "kamrankhot29@gmail.com",
     pass: process.env.email_password,
   },
 });
@@ -80,7 +80,16 @@ module.exports.registerUser = async (req, res) => {
       },
     };
     const authtoken = jwt.sign(data, JWT_SECRET, { expiresIn: "1h" });
+    const info = await transporter.sendMail({
+      from: '"Bajaj" <Bajaj.com>', // sender address
+      to: email, // list of receivers
+      subject: "Successful registeration  at bajaj ✔", // Subject line
+      text: `Congratulations for successfully registering on Bajaj `, // plain text body
+      // html: "<b>Hello world?</b>", // html body
+    });
+
     res.status(200).json({ authtoken });
+    console.log("Message sent: %s", info.messageId);
     //   now sending an otp to Customer as he is registering
   } catch (e) {
     res.status(500).json({ error: e.message });

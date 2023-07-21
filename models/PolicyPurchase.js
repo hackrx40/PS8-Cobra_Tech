@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const policyPurchaseSchema = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Users",
+  },
   Name: { type: String, required: true },
   Gender: { type: String, required: true },
   dob: {
@@ -20,3 +24,5 @@ const policyPurchaseSchema = new mongoose.Schema({
   },
   income: { type: Number, required: true },
 });
+
+module.exports = mongoose.model("PolicyPurchase", policyPurchaseSchema);

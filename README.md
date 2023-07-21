@@ -3,7 +3,7 @@
   <a href="" rel="noopener">
 <img src="https://github.com/hackrx40/PS8-Cobra_Tech/blob/frontend/src/assets/logo.jpg"></a>
 </p>
-<h1 align="center">Cobra-Tech presents SmoothifyDost</h1>
+<h1 align="center">Cobra-Tech presents Smoothify</h1>
 
 <div align="center" >
 

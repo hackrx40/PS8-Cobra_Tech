@@ -1,5 +1,5 @@
 import React from 'react'
-import kavach from '../../assets/footerlogo.png'
+import kavach from '../../assets/logo.jpg'
 import './footer.css'
 const footer = () => {
   return (
@@ -10,7 +10,7 @@ const footer = () => {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
               <a href="https://flowbite.com/" className="flex items-center">
-                  <img src={kavach} />
+                  <img src={kavach} id='footerImgLogo'/>
                
               </a>
           </div>

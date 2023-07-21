@@ -2,7 +2,7 @@
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     width: 100%;
-    background: #DEEFEB;
+    background: #0072BC;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -25,7 +25,7 @@
     overflow: hidden;
     font-weight: 800;
     opacity: 0;
-    color: #148A86;
+    color: white;
 }
 .preloader img{
     width: 8rem;

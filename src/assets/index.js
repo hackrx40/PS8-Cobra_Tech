@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "./logo.jpg";
 import Calling from "./Calling.svg";
 import SheildIcon from "./SheildIcon.png";
 import Menu from "./Menu.svg";

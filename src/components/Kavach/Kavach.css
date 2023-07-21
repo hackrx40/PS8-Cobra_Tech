@@ -1,18 +1,18 @@
 .KavachBox{
 
 width: 80%;
-/* height: 45rem; */
+
 margin-top: 4rem;
 margin-bottom: 4rem;
 box-shadow: 0 16px 20px 1px rgba(0, 0, 0, 0.1);
-background-color: #DEEFEB;
+background-color: #0072BC;
 
 border-radius: 12px;
 }
 .kavachTitle{
     margin-top: 2rem;
     margin-bottom: 2rem;
-
-    font-family: 'Poppins';
+color: white;
+   font-weight: bold;
     font-size: 2rem;
 }

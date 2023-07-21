@@ -11,7 +11,7 @@ const HomePage = () => {
   <>
      <div
           className={`flex items-center pl-4 border rounded dark:border-gray-700 radioBox w-[50%] ${
-            selectedOption === "option1" ? "bg-[#68BFA8]" : ""
+            selectedOption === "option1" ? "bg-[#0072BC]" : ""
           }`}
         >
           <input
@@ -31,7 +31,7 @@ const HomePage = () => {
         </div>
         <div
           className={`flex items-center pl-4 border rounded dark:border-gray-700 radioBox  w-[50%] ${
-            selectedOption === "option2" ? "bg-[#68BFA8]" : ""
+            selectedOption === "option2" ? "bg-[#0072BC]" : ""
           }`}
         >
           <input

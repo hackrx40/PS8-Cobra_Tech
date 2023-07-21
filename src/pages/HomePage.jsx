@@ -7,7 +7,7 @@ import './Scroller.css'
 import umbu from "../assets/umbu.png";
 import lob from "../assets/lob.png";
 import savings from "../assets/savings.png";
-import kavachEng from "../assets/KavachEng.png";
+import kavachEng from "../assets/logo.jpg";
 import invest from "../assets/invest.png";
 import child from "../assets/child.png";
 import tick from "../assets/tick.png";
@@ -51,12 +51,12 @@ const HomePage = () => {
             </div>
             <button
               type="submit"
-              className="inline-flex w-full rounded-full justify-center content-center bg-[#68BFA8] px-6 pt-[0.5rem] pb-[0.5rem] font-poppins font-semibold  leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] hover:bg-emerald-500"
+              className="inline-flex w-full rounded-full justify-center content-center bg-[#f89c30] px-6 pt-[0.5rem] pb-[0.5rem] font-poppins font-semibold  leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] hover:bg-[#DF8E2F]"
               data-te-ripple-init
               data-te-ripple-color="light"
               id="calBtn"
             >
-              Calculate Premium
+              Recommend Plan
             </button>
           </div>
         </div>
@@ -88,7 +88,7 @@ const HomePage = () => {
       <div className="stepper">
          <Steps />
       </div>
-      <div className="premiumMainBox">
+      <div className="planMainBox">
          <Premium />
       </div>
 

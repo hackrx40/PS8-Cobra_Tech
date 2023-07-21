@@ -12,8 +12,8 @@ const Steps = () => {
     <h1 className='formPremiumTitle'>
     Up to 11% discount on your first premium
     </h1>
-   <div className='w-[65rem]' id='preUniqueBox'>
-    <div className="flex flex-col formBox">
+   <div className='w-[]' id='preUniqueBox'>
+    <div className="flex flex-col ">
     <div className="flex">
       <input type="text" placeholder='Name' className='fieldPlace' />
       <input type="text" placeholder='Date of Birth' className='fieldPlace' />
@@ -35,7 +35,7 @@ const Steps = () => {
     <div className="preimumBtn">
     <button
               type="submit"
-              className="inline-flex w-full rounded-full justify-center content-center bg-[#68BFA8] px-6 pt-[0.5rem] pb-[0.5rem] font-poppins font-semibold  leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] hover:bg-emerald-500"
+              className="inline-flex w-full rounded-full justify-center content-center bg-[#f89c30] px-6 pt-[0.5rem] pb-[0.5rem] font-poppins font-semibold  leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] hover:bg-[#DF8E2F]"
               data-te-ripple-init
               data-te-ripple-color="light"
               id="calBtn"

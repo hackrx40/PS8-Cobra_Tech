@@ -16,7 +16,7 @@ const Kavach = () => {
       className="flex flex-col justify-center items-center KavachBox"
      
     >
-      <h1 className="kavachTitle">Why Kavach</h1>
+      <h1 className="kavachTitle">Why choose us?</h1>
       <div className="flex justify-center items-center ">
         <KavachCards
           image={kavachpercent}
@@ -44,7 +44,7 @@ const Kavach = () => {
         <KavachCards
           image={kavachbuild}
           planName="99.06%"
-          desc="Kavach Presence"
+          desc="Our Presence"
           imageHeight="66px"
           imageWidth="80px"
         />

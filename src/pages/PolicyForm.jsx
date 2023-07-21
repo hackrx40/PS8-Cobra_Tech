@@ -186,6 +186,7 @@ const HomePage = () => {
                   </a>
                 </label>
               <ReCAPTCHA
+              className="m-12"
         sitekey="6LezpkEnAAAAAMtCta7F5xeFf_D5C_1UqqktRE2x"
   
       />

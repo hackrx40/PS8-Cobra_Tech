@@ -1,4 +1,5 @@
 import React from 'react'
+import './Login.css';
 import { Link } from 'react-router-dom';
 import { SheildIcon } from '../assets';
 import Layout from '../components/Layout'
@@ -35,7 +36,7 @@ const Login = () => {
                 {/*Continue button*/}
                 <button
                   type="submit"
-                  className="inline-flex w-full rounded-full justify-center content-center bg-[#68BFA8] px-6 pt-[0.5rem] pb-[0.5rem] font-poppins font-semibold  leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] hover:bg-emerald-500"
+                  className="inline-flex w-full rounded-full justify-center content-center bg-[#f89c30] px-6 pt-[0.5rem] pb-[0.5rem] font-poppins font-semibold  leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] hover:bg-[#DF8E2F]"
                   data-te-ripple-init
                   data-te-ripple-color="light"
                 >
@@ -70,11 +71,12 @@ const Login = () => {
             </div>
           </div>
         </div>
-        <div className='sm:w-[50%] flex flex-col lg:pr-[9rem]'>
-          <img src={SheildIcon} alt="SheildIcon"/>
-          <div className='flex font-poppins font-bold justify-center sm:text-[2rem] pb-[2rem] text-center'>
-            <p>Shielding What Matters
-                  <br/>Most to You.</p>
+        <div className='sm:w-[50%] flex flex-col p-20 '>
+          <img src={SheildIcon} alt="SheildIcon" className='loginImg' />
+          <div className='flex font-poppins font-bold justify-center sm:text-[1.6rem]  text-center'>
+            <p>Life a tension free life with 
+
+                  <br/>Bajaj Allianz!.</p>
           </div>
         </div>
       </div>

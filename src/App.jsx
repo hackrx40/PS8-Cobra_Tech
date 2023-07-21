@@ -3,6 +3,8 @@ import HomePage from './pages/HomePage';
 import Login from "./pages/Login";
 import PolicyForm from "./pages/PolicyForm";
 import Test from "./pages/Top";
+import Otp from "./pages/Otp";
+
 
 import Radio from "./components/Radio/Radio";
 
@@ -19,8 +21,7 @@ const App = () => {
         <Route path="/" element={<HomePage/>}/>
         <Route path="/PolicyForm" element={<PolicyForm/>}/>
         <Route path="/Radio" element={<Radio/>}/>
-
-
+        <Route path="/Otp" element={<Otp/>}/>
         <Route path="/Test" element={<Test/>}/>
         <Route path="/Login" element={<Login/>}/>
         <Route path="*" element={<pageNotFound />} />

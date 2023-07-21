@@ -1,9 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from './Layout'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {robot} from "../assets"
 
 const Register = () => {
+  const navigate = useNavigate();
+  const [secretKey, setSecretKey] = useState("");
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
+  const host = "http://localhost:5000";
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (credentials.userType == "Admin" && secretKey != "1234") {
+      e.preventDefault();
+
+      alert("Invalid Admin");
+    } else {
+      e.preventDefault();
+
+      //   console.log(userName, email, password, authority, flatNo);
+      const response = await fetch(`${host}/api/v1/customer/login`, {
+        method: "POST",
+        // crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          
+          email: credentials.email,
+          password: credentials.password,
+        }),
+      });
+      const json = await response.json();
+      console.log(json, "hi");
+      console.log(localStorage.getItem("token"));
+      if (json.success ) {
+        navigate("/");
+      } else {
+        alert("Invalid credentials");
+      }
+    }
+  };
+  const onChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
   return (
     <Layout>
         <div className="sm:flex bg-primary sm:flex-row flex-col w-full sm:h-[52rem] sm:pt-[5.812rem] pt-[2rem] sm:pl-[7.69rem] px-16">
@@ -13,22 +55,28 @@ const Register = () => {
               <p className="pb-[1.5rem] text-[#171A21] font-poppins text-xl font-bold">
                 Login
               </p>
-              <form>
+              <form onSubmit={handleSubmit}>
                 {/*Mobile number*/}
                 <div className="relative mb-6 " data-te-input-wrapper-init>
                   <input
-                    type="tel"
+                    type="email"
                     className="peer block min-h-[auto] h-[2.505rem] w-full rounded border border-[#C2C7D1] border-solid bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none placeholder:text-[#6D7585]"
-                    placeholder="Mobile number"
+                    placeholder="Email ID"
+                    name='email'
+                    value ={credentials.email}
+                    onChange={onChange}
                   />
                 </div>
 
-                {/* Gender */}
+                {/* password */}
                 <div className="relative mb-6" data-te-input-wrapper-init>
                   <input
                     type="password"
                     className="peer block min-h-[auto] w-full rounded border border-[#C2C7D1] border-solid bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none placeholder:text-[#6D7585]"
                     placeholder="password"
+                    name='password'
+                    value ={credentials.password}
+                    onChange={onChange}
                   />
                 </div>
 

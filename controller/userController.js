@@ -14,6 +14,12 @@ const transporter = nodemailer.createTransport({
     pass: process.env.email_password,
   },
 });
+
+let otp, userlog;
+function otpGenerator() {
+  return Math.floor(1000 + Math.random() * 9000);
+}
+otp = otpGenerator();
 let response_data, user;
 module.exports.registerUser = async (req, res) => {
   try {
@@ -105,10 +111,10 @@ module.exports.login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await Users.findOne({ email });
-    const pass = user.password;
-
-    if (!user) {
+    userlog = await Users.findOne({ email });
+    const pass = userlog.password;
+    console.log(userlog, 12345);
+    if (!userlog) {
       return res.status(400).json({ error: "invalid login credential" });
     }
 
@@ -118,22 +124,45 @@ module.exports.login = async (req, res) => {
       return res.status(400).json({ error: "invalid login credential" });
     }
 
-    const data = {
-      user: {
-        id: user.id,
-      },
-    };
-    const authToken = jwt.sign(data, JWT_SECRET);
-    success = true;
-    res.status(200).json({
-      success,
-      authToken,
+    // email otp verification
+    const info = await transporter.sendMail({
+      from: '"Kavach" <kavach.com>', // sender address
+      to: email, // list of receivers
+      subject: "OTP verification from Kavach ✔", // Subject line
+      text: `Your OTP is ${otp}`, // plain text body
+      // html: "<b>Hello world?</b>", // html body
     });
+    console.log("Message sent: %s", info.messageId);
+
+    res.status(200).json("otp sent to entered email!!");
   } catch (err) {
     res.status(400).json({
       status: "error from login side",
       message: err,
     });
+  }
+};
+
+module.exports.loginVerify = async (req, res) => {
+  try {
+    let votp = req.body.otp;
+    if (otp !== votp) {
+      res.status(404).json("wrong otp entered");
+    }
+    console.log(otp);
+    const data = {
+      userlog: {
+        id: userlog.id,
+      },
+    };
+    const authToken = jwt.sign(data, JWT_SECRET, { expiresIn: "1h" });
+    success = true;
+    res.status(200).json({
+      success,
+      authToken,
+    });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
   }
 };
 

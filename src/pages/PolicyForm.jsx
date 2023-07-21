@@ -4,7 +4,7 @@ import Faqa from "../components/Faq/faq";
 import PreLoader from "../components/Preloader";
 import Top from "./Top";
 import "./PolicyForm.css";
-
+import ReCAPTCHA from "react-google-recaptcha"
 const HomePage = () => {
   return (
     <div>
@@ -163,8 +163,8 @@ const HomePage = () => {
                   />
                 </div>
               </div>
-              <div className="flex justify-center  items-center">
-                <div className="flex items-center h-5">
+              <div className="flex m-1 justify-center  items-center">
+                <div className="m-25 flex items-center h-5">
                   <input
                     id="terms"
                     type="checkbox"
@@ -175,16 +175,20 @@ const HomePage = () => {
                 </div>
                 <label
                   htmlFor="terms"
-                  className="ml-2 text-sm font-medium text-black-900 dark:text-black-300"
+                  className="m-25 ml-2 text-sm font-medium text-black-900 dark:text-black-300"
                 >
                   I agree with the{" "}
                   <a
                     href="#"
-                    className="text-blue-600 hover:underline dark:text-blue-500"
+                    className="m-25 text-blue-600 hover:underline dark:text-blue-500"
                   >
                     terms and conditions
                   </a>
                 </label>
+              <ReCAPTCHA
+        sitekey="6LcwAEInAAAAADvQGWwFZOKqXOD0Kf2HcQIkPyZ0"
+  
+      />
               </div>
               <div className="flex justify-center items-center btnBoxPolicy">
                 <button

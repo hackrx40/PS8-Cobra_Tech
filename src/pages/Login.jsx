@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { SheildIcon } from '../assets';
 import Layout from '../components/Layout'
+import Top from './Top'
 const Login = () => {
   return (
     <Layout>
+      <Top />
       <div className="sm:flex sm:flex-row flex-col w-full sm:h-[52rem] sm:pt-[5.812rem] pt-[2rem] sm:pl-[7.69rem] px-16">
         <div className="sm:w-[50%]">
           <div className="flex pt-[1.25rem] px-[7rem] justify-center max-w-2xl content-start text-[#171A21] bg-slate-50">

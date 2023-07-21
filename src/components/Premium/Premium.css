@@ -1,0 +1,40 @@
+#preUniqueBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preImageBox,
+.imageBox {
+  margin-left: 5rem;
+}
+.formBox {
+  display: flex;
+  justify-content: flex-start;
+}
+.labelTitle {
+  text-align: left;
+  margin-left: 1rem;
+}
+.fieldPlace {
+  padding: 12px 20px;
+
+  margin: 0.5rem;
+width: 15.5rem;
+  display: inline-block;
+  border: 1px solid #0c0b0b;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.formPremiumTitle{
+  text-align: left;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  font-family: 'Poppins';
+}
+.preimumBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}

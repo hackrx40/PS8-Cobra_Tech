@@ -1,0 +1,12 @@
+.footBox{
+    margin-top: 2rem;
+    background-color: #DEEFEB;
+   
+}
+
+.linkBox{
+    width: 30%;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+}

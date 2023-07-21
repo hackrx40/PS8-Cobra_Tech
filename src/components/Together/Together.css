@@ -1,0 +1,24 @@
+.mainBox img{
+    /* width: 35rem; */
+    height: 15rem;
+}
+.mainBox{
+    justify-content: space-between;
+    margin-top: 5rem;
+    width: 80%;
+    margin-bottom: 4rem;
+
+}
+.textBox h2{
+    font-size: 2rem;
+    font-family: 'Poppins';
+    margin-bottom: 3rem;
+}
+.textBox p{
+    font-size: 15px;
+    font-family: 'Poppins';
+
+}
+.textBox button{
+    margin-top: 2rem;
+}

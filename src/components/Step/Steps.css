@@ -1,0 +1,34 @@
+.people{
+    width: 105%;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.titleMan{
+    font-size: 2rem;
+    font-family: 'Poppins';
+}
+.circleImg{
+    width: 105%;
+    margin-top: 2rem;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.textPeople{
+    width: 105%;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#progImg{
+    margin-bottom: 3rem;
+}

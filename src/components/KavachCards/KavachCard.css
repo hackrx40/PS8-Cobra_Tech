@@ -1,0 +1,22 @@
+.kavachCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 15rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 16px 20px 1px rgba(0, 0, 0, 0.1);
+    margin: 16px;
+    padding: 16px;
+    text-align: center;
+  }
+  .kavach-text1{
+    margin-top: 1rem;
+    font-weight: 700;
+    font-family: 'Poppins';
+  }
+  .kavach-text2{
+    margin-top: 1rem;
+    font-family: 'Poppins';
+  }

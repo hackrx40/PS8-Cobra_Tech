@@ -1,0 +1,15 @@
+<svg width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 79">
+<path id="Rectangle 69" d="M0 17.8077C0 8.24891 7.74892 0.5 17.3077 0.5L51 0.5V34.1923C51 43.7511 43.2511 51.5 33.6923 51.5H0L0 17.8077Z" fill="url(#paint0_linear_747_96)"/>
+<path id="Polygon 1" d="M15.7451 31.1955C14.5732 29.9294 13.9231 28.2671 13.925 26.5418L13.9346 18.1105C13.9353 17.551 14.2096 17.0272 14.6691 16.7081L19.1313 13.609C23.0646 10.8771 28.2767 10.8589 32.229 13.5633L36.7845 16.6803C37.2508 16.9994 37.5294 17.5283 37.5288 18.0934L37.5192 26.4971C37.5172 28.2328 36.8554 29.9029 35.6678 31.1688L27.745 39.6142C26.6002 40.8344 24.6608 40.8279 23.5243 39.6L15.7451 31.1955Z" fill="white"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_747_96" x1="76.3558" y1="-13.8365" x2="-32.5673" y2="70.5385" gradientUnits="userSpaceOnUse">
+<stop stop-color="#148A86"/>
+<stop offset="0.203125" stop-color="#5EAA97"/>
+<stop offset="0.469294" stop-color="#88CDA4"/>
+<stop offset="0.729167" stop-color="#5EAA97"/>
+<stop offset="1" stop-color="#148A86"/>
+</linearGradient>
+</defs>
+</svg>

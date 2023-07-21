@@ -86,3 +86,63 @@ module.exports.registerCustomer = async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 };
+
+// Login
+
+module.exports.login = async (req, res) => {
+  const salt = await bcrypt.genSalt(10);
+  const secPass = await bcrypt.hash(req.body.password, salt);
+  console.log(secPass);
+
+  const { email, password } = req.body;
+
+  try {
+    const customer = await Customer.findOne({ email });
+    const pass = customer.password;
+
+    if (!customer) {
+      return res.status(400).json({ error: "invalid login credential" });
+    }
+
+    const passwordCompare = await bcrypt.compare(password, pass);
+    if (!passwordCompare) {
+      success = false;
+      return res.status(400).json({ error: "invalid login credential" });
+    }
+
+    const data = {
+      customer: {
+        id: customer.id,
+      },
+    };
+    const authToken = jwt.sign(data, JWT_SECRET);
+    success = true;
+    res.status(200).json({
+      success,
+      authToken,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "error from login side",
+      message: err,
+    });
+  }
+};
+
+// LoginData
+module.exports.loginData = async (req, res) => {
+  try {
+    let status = true;
+    const customerId = req.customer.id;
+    const customer = await Customer.findById(customerId).select("-password");
+    console.log(customerId, 76767);
+    console.log(customer, 8998);
+
+    res.status(200).json({
+      status: true,
+      customer: customer,
+    });
+  } catch (err) {
+    res.status(400).json({ error: err });
+  }
+};

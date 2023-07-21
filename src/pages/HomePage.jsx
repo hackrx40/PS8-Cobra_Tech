@@ -49,6 +49,7 @@ const HomePage = () => {
               <h5>5% Discount</h5>
               <h5>Zero Commission</h5>
             </div>
+            <a href="#calcMainBox">
             <button
               type="submit"
               className="inline-flex w-full rounded-full justify-center content-center bg-[#f89c30] px-6 pt-[0.5rem] pb-[0.5rem] font-poppins font-semibold  leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] hover:bg-[#DF8E2F]"
@@ -58,6 +59,7 @@ const HomePage = () => {
             >
               Recommend Plan
             </button>
+          </a>
           </div>
         </div>
       </div>
@@ -88,7 +90,7 @@ const HomePage = () => {
       <div className="stepper">
          <Steps />
       </div>
-      <div className="planMainBox">
+      <div className="planMainBox"  id="calcMainBox">
          <Premium />
       </div>
 

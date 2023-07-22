@@ -8,9 +8,10 @@ app.use(cors());
 app.use(express.json());
 const authRouter = require("./routes/userRouter");
 const policyRouter = require("./routes/buyPolicyRouter");
-
+const paymentRoutes = require("./routes/payment")
 app.use("/api/v1/bajaj/user", authRouter);
 app.use("/api/v1/bajaj/policy", policyRouter);
+app.use("/api/payment/",paymentRoutes)
 const db = process.env.database;
 mongoose
   .connect(db, {

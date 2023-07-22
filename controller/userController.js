@@ -23,8 +23,8 @@ otp = otpGenerator();
 let response_data, user;
 module.exports.registerUser = async (req, res) => {
   try {
-    console.log("email", 231);
-    console.log(req.body);
+    let success = false
+    
     const { email, phone, pan, password, dob } = req.body;
     console.log(email, 231);
     const emailExist = await Users.findOne({ email });
@@ -80,12 +80,7 @@ module.exports.registerUser = async (req, res) => {
       data: response_data,
     });
     user = await user.save();
-    const data = {
-      user: {
-        id: user,
-      },
-    };
-    const authtoken = jwt.sign(data, JWT_SECRET, { expiresIn: "1h" });
+    
     const info = await transporter.sendMail({
       from: '"Bajaj" <Bajaj.com>', // sender address
       to: email, // list of receivers
@@ -93,8 +88,14 @@ module.exports.registerUser = async (req, res) => {
       text: `Congratulations for successfully registering on Bajaj `, // plain text body
       // html: "<b>Hello world?</b>", // html body
     });
-
-    res.status(200).json({ authtoken });
+    const data = {
+      user: {
+        id: user,
+      },
+    };
+    const authtoken = jwt.sign(data, JWT_SECRET, { expiresIn: "1h" });
+    success = true
+    res.status(200).json({ success,authtoken });
     console.log("Message sent: %s", info.messageId);
     //   now sending an otp to Customer as he is registering
   } catch (e) {
@@ -111,6 +112,7 @@ module.exports.login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
+    let success =false
     userlog = await Users.findOne({ email });
     const pass = userlog.password;
     console.log(userlog, 12345);
@@ -133,8 +135,9 @@ module.exports.login = async (req, res) => {
       // html: "<b>Hello world?</b>", // html body
     });
     console.log("Message sent: %s", info.messageId);
-
-    res.status(200).json("otp sent to entered email!!");
+    success = true
+    let msg = 'otp send'
+    res.status(200).json({success,msg});
   } catch (err) {
     res.status(400).json({
       status: "error from login side",
@@ -155,8 +158,9 @@ module.exports.loginVerify = async (req, res) => {
         id: userlog.id,
       },
     };
-    const authToken = jwt.sign(data, JWT_SECRET, { expiresIn: "1h" });
     success = true;
+    const authToken = jwt.sign(data, JWT_SECRET, { expiresIn: "1h" });
+    
     res.status(200).json({
       success,
       authToken,

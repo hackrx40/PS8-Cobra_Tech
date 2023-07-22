@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SheildIcon } from '../assets';
 import Layout from '../components/Layout'
 import Top from './Top'
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-const Login = () => {
+
+const Register = () => {
   const navigate = useNavigate();
  
   const [credentials, setCredentials] = useState({
     
     email: "",
+    phone :"",
+    pan : "",
     password: "",
+    dob :"",
     
   });
   const host = "http://localhost:3000";
@@ -21,7 +23,7 @@ const Login = () => {
     
 
       //   console.log(userName, email, password, authority, flatNo);
-      const response = await fetch(`${host}/api/v1/bajaj/user/login`, {
+      const response = await fetch(`${host}/api/v1/bajaj/user/register`, {
         method: "POST",
         // crossDomain: true,
         headers: {
@@ -30,16 +32,17 @@ const Login = () => {
         body: JSON.stringify({
           
           email: credentials.email,
-         
+          phone: credentials.phone,
+          pan: credentials.pan,
           password: credentials.password,
-          
+          dob : credentials.dob,
         }),
       });
       const json = await response.json();
-      // console.log(json, "hi");
-      // console.log(localStorage.getItem("token"));
+      console.log(json, "hi");
+      console.log(localStorage.getItem("token"));
       if (json.success ) {
-        navigate("/Otp");
+        navigate("/");
       } else {
         alert("Invalid credentials");
       }
@@ -53,20 +56,41 @@ const Login = () => {
       <Top />
       <div className="sm:flex sm:flex-row flex-col w-full sm:h-[52rem] sm:pt-[5.812rem] pt-[2rem] sm:pl-[7.69rem] px-16">
         <div className="sm:w-[50%]">
-          <div className="flex pt-[1.25rem] px-[7rem] justify-center max-w-2xl content-start text-[#171A21] bg-slate-50">
-            <div className="block max-w-md rounded-lg bg-white p-6 stepper">
+          <div className="flex pt-[1.25rem] px-[7rem] justify-center  content-start text-[#171A21] bg-slate-50">
+            <div className="w-[100%] block max-w-md rounded-lg bg-white p-6 stepper">
               <p className="pb-[1.5rem] text-[#171A21] font-poppins text-xl font-bold">
-                Login
+                Register 
               </p>
               <form onSubmit={handleSubmit}>
-                {/*Mobile number*/}
                 <div className="relative mb-6 " data-te-input-wrapper-init>
                   <input
                     type="email"
                     className="peer block min-h-[auto] h-[2.505rem] w-full rounded border border-[#C2C7D1] border-solid bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none placeholder:text-[#6D7585]"
+                    placeholder="Email ID"
+                    name='email'
+                    value ={credentials.email}
+                    onChange={onChange}
+                  />
+                </div>
+                 {/*Mobile number*/}
+                 <div className="relative mb-6 " data-te-input-wrapper-init>
+                  <input
+                    type="tel"
+                    className="peer block min-h-[auto] h-[2.505rem] w-full rounded border border-[#C2C7D1] border-solid bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none placeholder:text-[#6D7585]"
                     placeholder="Mobile number"
-                    name = "email"
-                    value = {credentials.email}
+                    name='phone'
+                    value ={credentials.phone}
+                    onChange={onChange}
+                  />
+                </div>
+                {/*Pan input*/}
+                <div className="relative mb-6" data-te-input-wrapper-init>
+                  <input
+                    type="text"
+                    className="peer block min-h-[auto] w-full rounded border border-[#C2C7D1] border-solid bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none placeholder:text-[#6D7585]"
+                    placeholder="Pan"
+                    name='pan'
+                    value ={credentials.pan}
                     onChange={onChange}
                   />
                 </div>
@@ -76,8 +100,21 @@ const Login = () => {
                     type="password"
                     className="peer block min-h-[auto] w-full rounded border border-[#C2C7D1] border-solid bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none placeholder:text-[#6D7585]"
                     placeholder="Password"
-                    name = "password"
-                    value = {credentials.password}
+                    name='password'
+                    value ={credentials.password}
+                    onChange={onChange}
+                  />
+                </div>
+               
+               
+                {/*DOB*/}
+                <div className="relative mb-6 " data-te-input-wrapper-init>
+                  <input
+                    type="text"
+                    className="peer block min-h-[auto] h-[2.505rem] w-full rounded border border-[#C2C7D1] border-solid bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none placeholder:text-[#6D7585]"
+                    placeholder="DD-MM-YYYY"
+                    name='dob'
+                    value ={credentials.dob}
                     onChange={onChange}
                   />
                 </div>
@@ -94,24 +131,8 @@ const Login = () => {
                 <div className='flex h-[0.125rem] min-w-[13rem] border border-[#E2E8F0] border-solid mt-[2rem] mb-[1.5rem]'>
                   
                 </div>
-                {/* Policy no button */}
-                <button
-                  type="submit"
-                  className="inline-flex w-full rounded-full justify-center items-center content-center mt-[1rem] bg-[#FFF] pt-[0.5rem] pb-[0.5rem] font-poppins font-medium  leading-normal text-[#6D7585] sm:text-base text-sm border border-[#C2C7D1] border-solid hover:bg-slate-500 hover:text-white"
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                >
-                  Login With Policy Number
-                </button>
-                {/* Login with email */}
-                <button
-                  type="submit"
-                  className="inline-flex w-full rounded-full justify-center content-center mt-[1rem] bg-[#FFF] pt-[0.5rem] pb-[0.5rem] font-poppins font-medium sm:text-base text-sm leading-normal text-[#6D7585] border border-[#C2C7D1] border-solid hover:bg-slate-500 hover:text-white"
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                >
-                  Login With Email
-                </button>
+                
+                
                 <div className='sm:flex justify-center w-full flex text-center flex-col mt-[2rem]'>
                     <p className=' text-center font-poppins font-semibold text-sm'>Trouble signing in?</p>
                     <Link className='ml-[1rem] font-poppins font-semibold text-sm' to="">Click Here</Link>
@@ -130,7 +151,7 @@ const Login = () => {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
-export default Login
+export default Register

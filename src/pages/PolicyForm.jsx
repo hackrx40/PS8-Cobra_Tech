@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import Faqa from "../components/Faq/faq";
 import PreLoader from "../components/Preloader";
@@ -6,6 +6,31 @@ import Top from "./Top";
 import "./PolicyForm.css";
 import ReCAPTCHA from "react-google-recaptcha"
 const HomePage = () => {
+  const host = 'http://localhost:3000';
+  const [data,setData] = useState(null);
+  const loginData = async () => {
+    const response = await fetch(`${host}/api/v1/bajaj/user/loginData`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        token: localStorage.getItem('token'),
+      },
+    });
+
+    const storedResponse = await response.json();
+    setData(storedResponse)
+    console.log(storedResponse)
+  };
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem('token'); // Corrected the key name
+    console.log(storedToken);
+    loginData();
+  }, []);
+
+ 
+  
+  console.log(loginData())
   return (
     <div>
       <PreLoader />
@@ -14,13 +39,14 @@ const HomePage = () => {
         <div className="flex justify-center items-center">
           <div className="premiumMainBox w-[80%]">
             <h1 className="formTitle">Policyholder Details</h1>
-            <form>
+            <form >
               <div className="flex justify-center items-center">
-                <div className="m-10 mb-1 w-1/3">
+                <div className="m-10 mb-1 w-1/3 ">
                 
                   <input
                     type="text"
                     id="email"
+                    style={{width:'11rem'}}
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l    rounded-lg border-black focus:ring-blue-500 focus:border-blue-500 block w-full h-[3rem] p-2.5 "
                     placeholder="Enter your name "
                     required=""
@@ -29,9 +55,10 @@ const HomePage = () => {
                 <div className="m-10 mb-1 w-1/3">
             
                   <input
-                    placeholder="Enter Password"
-                    type="password"
-                    id="password"
+                    placeholder="Gender"
+                    style={{width:'11rem'}}
+                    type="text"
+                    id="Gender"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg border-black focus:ring-blue-500 focus:border-blue-500 block w-full h-[3rem] p-2.5 "
                     required=""
                   />
@@ -39,8 +66,9 @@ const HomePage = () => {
                 <div className="m-10 mb-1 w-1/3">
                
                   <input
-                    placeholder="Confirm Password"
-                    type="password"
+                    placeholder="DD-MM-YYYY"
+                    type="text"
+                    style={{width:'11rem'}}
                     id="repeatpassword"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg border-black focus:ring-blue-500 focus:border-blue-500 block w-full h-[3rem] p-2.5 "
                     required=""
@@ -50,10 +78,11 @@ const HomePage = () => {
               <div className="flex justify-center items-center">
                 <div className="m-10 mb-1 w-1/3">
                   <input
-                    type="text"
+                    type="email"
+                    style={{width:'11rem'}}
                     id="email"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l    rounded-lg border-black focus:ring-blue-500 focus:border-blue-500 block w-full h-[3rem] p-2.5 "
-                    placeholder="Enter your name "
+                    placeholder="Email ID "
                     required=""
                   />
                 </div>
@@ -98,9 +127,10 @@ const HomePage = () => {
                 <div className="m-10 mb-1 w-1/3">
                   <input
                     type="text"
-                    id="email"
+                    style={{width:'11rem'}}
+                    id="pin"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l    rounded-lg border-black focus:ring-blue-500 focus:border-blue-500 block w-full h-[3rem] p-2.5 "
-                    placeholder="Enter your name "
+                    placeholder="Occupation"
                     required=""
                   />
                 </div>
@@ -108,17 +138,19 @@ const HomePage = () => {
               <div className="flex justify-center items-center">
                 <div className="m-10 mb-1 w-1/3">
                   <input
-                    type="text"
+                    type="tel"
+                    style={{width:'11rem'}}
                     id=""
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l  rounded-lg border-black focus:ring-blue-500 focus:border-blue-500 block w-full h-[3rem] p-2.5 "
-                    placeholder="City "
+                    placeholder="Income "
                     required=""
                   />
                 </div>
                 <div className="m-10 mb-1 w-1/3">
                   <input
-                    placeholder="Education"
-                    type="text"
+                    placeholder="Pin code"
+                    type="tel"
+                    style={{width:'11rem'}}
                     id=""
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg border-black focus:ring-blue-500 focus:border-blue-500 block w-full h-[3rem] p-2.5 "
                     required=""
@@ -126,8 +158,9 @@ const HomePage = () => {
                 </div>
                 <div className="m-10 mb-1 w-1/3">
                   <input
-                    placeholder="Occupation"
+                    placeholder="Address"
                     type="text"
+                    style={{width:'11rem'}}
                     id=""
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg border-black focus:ring-blue-500 focus:border-blue-500 block w-full h-[3rem] p-2.5 "
                     required=""
@@ -146,17 +179,19 @@ const HomePage = () => {
                 </div>
                 <div className="m-10  w-1/3">
                   <input
-                    placeholder="Premium Payment Options"
+                    placeholder="Nominee Name"
                     type="text"
-                    id="password"
+                    style={{width:'11rem'}}
+                    id="Nominee Name"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg border-black focus:ring-blue-500 focus:border-blue-500 block w-full h-[3rem] p-2.5 "
                     required=""
                   />
                 </div>
                 <div className="m-10  w-1/3">
                   <input
-                    placeholder="Premium Payment Frequency"
+                    placeholder="Payment Frequency"
                     type="text"
+                    style={{width:'12rem'}}
                     id="repeatpassword"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg border-black focus:ring-blue-500 focus:border-blue-500 block w-full h-[3rem] p-2.5 "
                     required=""

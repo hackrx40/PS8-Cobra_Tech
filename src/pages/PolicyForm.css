@@ -17,3 +17,6 @@
     font-size: 1rem;
     margin-bottom: 3px;
 }
+input[type="text"]{
+    width: 12rem;
+}

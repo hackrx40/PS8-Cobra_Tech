@@ -173,7 +173,7 @@ module.exports.loginVerify = async (req, res) => {
 // LoginData
 module.exports.loginData = async (req, res) => {
   try {
-    let status = true;
+    let status = false;
     const userId = req.user.id;
     const user = await Users.findById(userId).select("-password");
     console.log(userId, 76767);

@@ -1,5 +1,6 @@
-const router = require("express").Router()
-const RazorPay = require("razorpay")
+const express = require("express")
+const router = express.Router()
+const Razorpay = require("razorpay")
 
 const crypto = require("crypto");
 
@@ -17,9 +18,9 @@ router.post("/orders",async(req,res)=>{
         instance.orders.create(options,(error,order)=>{
             if(error){
                 console.log(error);
-                return res.status(500).json({message:"Something went wrong!"})
+                return res.status(500).json({message:"Something went wrong!",error})
             }
-            res.status(200).json({data:order})
+           return res.status(200).json({data:order})
         })
     }catch(error){
 console.log(error);
